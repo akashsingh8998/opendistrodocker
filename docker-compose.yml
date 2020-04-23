@@ -64,10 +64,7 @@ services:
     container_name: logstash
     volumes:
     - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-    - type: bind
-        source: $LOG_FILE_LOCATION
-        target: /var/log
-        read_only: true
+    - $LOG_FILE_LOCATION:/var/log
     ports:
       - "5011:5011/tcp"
       - "5011:5011/udp"
